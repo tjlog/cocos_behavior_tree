@@ -28,7 +28,7 @@ export default class ReactiveSequence extends SequenceBase {
     protected _squence(){
         while(this.index<=this._tasks.length-1){
             let child_s=this._tasks[this.index].tick();
-            if(child_s==B_T_STATUS.SUCCESS){
+            if(this.juideStatus(child_s,B_T_STATUS.SUCCESS)){
                 this.index++;
             }else{
                 this.modifyStatus(child_s);

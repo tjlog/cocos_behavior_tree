@@ -4,7 +4,8 @@ import SequenceBase from "./SequenceBase";
 /**
  * 顺序执行
  *      每次执行都会从第一个执行
- *      注意：当开始执行这个循环还没有执行完时不允许重复执行
+ *      注意： 当时running状态的时候会继续以前的地方开始执行
+ *      faild 会重头开始执行
  */
 
 export default class Sequence  extends SequenceBase {
@@ -40,7 +41,8 @@ export default class Sequence  extends SequenceBase {
                 continue;
             };
             let child_s=this._tasks[this.index].tick();
-            if(child_s==B_T_STATUS.SUCCESS){
+            if(this.juideStatus(child_s,B_T_STATUS.SUCCESS)){
+                this.flagTaskIndexs.push(this.index);
                 this.index++;
             }else{
                 this.modifyStatus(child_s);
@@ -51,7 +53,7 @@ export default class Sequence  extends SequenceBase {
             this.modifyStatus(B_T_STATUS.SUCCESS);
         }
 
-        if(this._status!=B_T_STATUS.RUNNING){
+        if(this.isSuccess()||this.isFaild()){
             this.clearFlagTaskIndex();
             this._haltAllChildren();
         }

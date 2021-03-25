@@ -14,21 +14,21 @@ export default class TNodeBase{
     }
 
     isRunning():boolean{
-        return this.juideStatus(B_T_STATUS.RUNNING)
+        return this.juideStatus(this._status,B_T_STATUS.RUNNING)
     }
 
     isSuccess(){
-        return this.juideStatus(B_T_STATUS.SUCCESS)
+        return this.juideStatus(this._status,B_T_STATUS.SUCCESS)
     }
 
 
     isFaild(){
-        return this.juideStatus(B_T_STATUS.FAILD);
+        return this.juideStatus(this._status,B_T_STATUS.FAILD);
     }
 
-    juideStatus(mb:B_T_STATUS){
+    juideStatus(nowStatus:B_T_STATUS,mb:B_T_STATUS){
         let b=false;
-        if(this._status==mb)
+        if(nowStatus==mb)
         return b;
     }
 
