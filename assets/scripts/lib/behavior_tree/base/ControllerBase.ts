@@ -1,9 +1,5 @@
-import TNodeBase, { B_T_STATUS } from "../base/TNodeBase";
-export default class SequenceBase extends TNodeBase {
-    tick():B_T_STATUS{
-        this._status=B_T_STATUS.RUNNING;
-        return this._status;
-    }
+import TNodeBase from "./TNodeBase";
+export default class ControllerBase extends TNodeBase {
     private _index: number = 0;
 
     protected _tasks:Array<TNodeBase>=null;
@@ -32,8 +28,13 @@ export default class SequenceBase extends TNodeBase {
     protected set index(value: number) {
         this._index = value;
     }
+    
+    /**
+     * 停止所有字节点
+     */
+    protected _haltAllChildren(){
 
-
+    }
 
     private _flagTaskIndexs:Array<number>=[];
 
@@ -47,14 +48,7 @@ export default class SequenceBase extends TNodeBase {
      */
     protected clearFlagTaskIndex(){
         this._flagTaskIndexs=[];
-    }
+    }   
 
 
-    /**
-     * 停止所有子元素
-     */
-    protected _haltAllChildren(){
-
-    }
-    
 }

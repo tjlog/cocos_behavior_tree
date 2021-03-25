@@ -13,20 +13,20 @@ export default class TNodeBase{
         return this._status;
     }
 
-    isRunning():boolean{
+    protected isRunning():boolean{
         return this.juideStatus(this._status,B_T_STATUS.RUNNING)
     }
 
-    isSuccess(){
+    protected isSuccess(){
         return this.juideStatus(this._status,B_T_STATUS.SUCCESS)
     }
 
 
-    isFaild(){
+    protected isFaild(){
         return this.juideStatus(this._status,B_T_STATUS.FAILD);
     }
 
-    juideStatus(nowStatus:B_T_STATUS,mb:B_T_STATUS){
+    protected juideStatus(nowStatus:B_T_STATUS,mb:B_T_STATUS){
         let b=false;
         if(nowStatus==mb)
         return b;
@@ -36,4 +36,22 @@ export default class TNodeBase{
         this._status=status;
     }
 
+    /**
+     * 节点停止功能
+     */
+    stop(){
+
+    }
+
+    protected statusInver():B_T_STATUS{
+        if(this.isRunning()){
+            return B_T_STATUS.RUNNING;
+        }
+
+        if(this.isSuccess()){
+            return B_T_STATUS.FAILD;
+        }
+
+        return B_T_STATUS.SUCCESS;
+    }
 }
