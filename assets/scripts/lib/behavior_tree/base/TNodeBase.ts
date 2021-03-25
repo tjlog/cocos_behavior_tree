@@ -28,7 +28,7 @@ export default class TNodeBase{
 
     protected juideStatus(nowStatus:B_T_STATUS,mb:B_T_STATUS){
         let b=false;
-        if(nowStatus==mb)
+        if(nowStatus==mb) b=true;
         return b;
     }
 

@@ -8,7 +8,7 @@ export default class Tree{
         this._rootn=rootn;
     }
 
-    run(){
-        this._rootn.tick();
+    run(array:Array<TNodeBase>){
+        this._rootn.run(array);
     }
 }
