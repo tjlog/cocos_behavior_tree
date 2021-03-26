@@ -26,6 +26,11 @@ export default class BlackBoard{
         return this._baseMemory[id];
     }
 
+
+    getBaseMemory(id:string):BaseData{
+        return this._getBaseMemory(id);
+    }
+
 }
 
 
@@ -49,5 +54,14 @@ class BaseData{
     constructor(){
         this.map={};
         this.map["isOpen"]=false
+    }
+
+
+    get open():boolean{
+        return this.map["isOpen"];
+    }
+
+    set open(v:boolean){
+        this.map["isOpen"] =v;
     }
 }

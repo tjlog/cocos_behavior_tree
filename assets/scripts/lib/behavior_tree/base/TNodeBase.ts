@@ -12,13 +12,10 @@ export default class TNodeBase{
     public get blackBoard(): BlackBoard {
         return this._blackBoard;
     }
-    public set blackBoard(value: BlackBoard) {
-        this._blackBoard = value;
-    }
     constructor(blackBorad:BlackBoard){
         this._blackBoard=blackBorad;
     }
-    
+
     /**
      * 唯一id
      */
@@ -89,16 +86,16 @@ export default class TNodeBase{
         return B_T_STATUS.SUCCESS;
     }
 
-    isOpen(id:string){
+    isOpen(id:string):boolean{
 
-        return true;
+        return this.blackBoard.getBaseMemory(id).open;
     }
 
-    open(){
-
+    open(id:string){
+        this.blackBoard.getBaseMemory(id).open=true; 
     }
 
-    close(){
-
+    close(id:string){
+        this.blackBoard.getBaseMemory(id).open=false;
     }
 }
