@@ -1,21 +1,16 @@
-import RootNode from "../behavior_tree/base/RootNode";
 import TreeFactory from "../behavior_tree/core/TreeFactory";
-import Action1 from "./action/Action1";
-import Action2 from "./action/Action2";
-import Action3 from "./action/Action3";
-
 const {ccclass, property} = cc._decorator;
 @ccclass
 export default class T1 extends cc.Component {
     onLoad(){
         console.log("开始")
-        let factory=TreeFactory.Ins;
-        let ac1=new Action1(this);
-        let ac2=new Action2(this);
-        let ac3=new Action3(this);
-        let root=new RootNode();
-        let tree=factory.tree(root);
-        tree.run([ac1,ac2,ac3]);
+        // let factory=TreeFactory.Ins;
+        // let ac1=new Action1(this);
+        // let ac2=new Action2(this);
+        // let ac3=new Action3(this);
+        // let root=new RootNode();
+        // let tree=factory.tree(root);
+        // tree.run([ac1,ac2,ac3]);
     }
 
     a(){

@@ -13,6 +13,18 @@ export default class TNodeBase{
         return this._status;
     }
 
+
+
+    /**
+     * 异步tick
+     * @returns 
+     */
+    asyncTick():Promise<B_T_STATUS>{
+        return new Promise((res,rej)=>{
+            res(B_T_STATUS.SUCCESS);
+        });
+    }
+
     protected isRunning():boolean{
         return this.juideStatus(this._status,B_T_STATUS.RUNNING)
     }
