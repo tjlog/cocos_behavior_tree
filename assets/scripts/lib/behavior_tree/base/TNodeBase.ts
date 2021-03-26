@@ -1,3 +1,4 @@
+import BlackBoard from "../core/BlackBoard";
 import Instance from "./Instance";
 
 export enum B_T_STATUS{
@@ -7,6 +8,17 @@ export enum B_T_STATUS{
 }
 export default class TNodeBase{
 
+    private _blackBoard: BlackBoard = null;
+    public get blackBoard(): BlackBoard {
+        return this._blackBoard;
+    }
+    public set blackBoard(value: BlackBoard) {
+        this._blackBoard = value;
+    }
+    constructor(blackBorad:BlackBoard){
+        this._blackBoard=blackBorad;
+    }
+    
     /**
      * 唯一id
      */
@@ -78,7 +90,7 @@ export default class TNodeBase{
     }
 
     isOpen(id:string){
-        
+
         return true;
     }
 

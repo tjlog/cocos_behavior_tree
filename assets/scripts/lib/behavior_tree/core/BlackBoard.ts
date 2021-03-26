@@ -1,9 +1,10 @@
+import Instance from "../base/Instance";
 import TNodeBase from "../base/TNodeBase";
 
 /**
  * 用具节点之间数据的分享
  */
-export default class BlackBoard {
+export default class BlackBoard{
     private _baseMemory:{[key:string]:BaseData}=null;
     private _treeMomory:{[key:string]:TreeData}=null;
     constructor(){
@@ -24,13 +25,6 @@ export default class BlackBoard {
         }
         return this._baseMemory[id];
     }
-
-
-    
-
-
-
-    
 
 }
 
