@@ -13,6 +13,7 @@ export default class Sequence  extends SequenceBase {
   
 
     tick():B_T_STATUS{
+        if(this.isOpen(this.id)) return this._status;
         if(!this.isRunning()){
             this.index=0;
         }
@@ -20,7 +21,9 @@ export default class Sequence  extends SequenceBase {
             return B_T_STATUS.FAILD;
         }
         this.modifyStatus(B_T_STATUS.RUNNING);//修改当前的代码为执行状态
+        this.open(this.id);
         this._squence();
+        this.close(this.id);
         return this._status;
     }
 

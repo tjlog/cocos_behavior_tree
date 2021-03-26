@@ -71,7 +71,7 @@ export default class TNodeBase{
      * 节点停止功能
      */
     stop(){
-
+        this.close(this.id);
     }
 
     protected statusInver():B_T_STATUS{
@@ -86,15 +86,28 @@ export default class TNodeBase{
         return B_T_STATUS.SUCCESS;
     }
 
+
+    /**
+     * 是否打开门
+     * @param id 
+     * @returns 
+     */
     isOpen(id:string):boolean{
 
         return this.blackBoard.getBaseMemory(id).open;
     }
 
+    /**
+     * 开门
+     * @param id 
+     */
     open(id:string){
         this.blackBoard.getBaseMemory(id).open=true; 
     }
-
+    /**
+     * 关门
+     * @param id 
+     */
     close(id:string){
         this.blackBoard.getBaseMemory(id).open=false;
     }

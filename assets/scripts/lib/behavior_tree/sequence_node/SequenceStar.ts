@@ -10,14 +10,17 @@ import SequenceBase from "./SequenceBase";
  */
 export default class SequenceStar extends SequenceBase {
     tick():B_T_STATUS{
+        if(this.isOpen(this.id)) return this._status;
         if(this.isSuccess()){
             this.index=0;
         }
         if(this.isInit()){
             return B_T_STATUS.FAILD;
         }
+        this.open(this.id);
         this.modifyStatus(B_T_STATUS.RUNNING);//修改当前的代码为执行状态
         this._squence();
+        this.close(this.id)
         return this._status;
     }
 
