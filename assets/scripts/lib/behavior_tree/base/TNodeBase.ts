@@ -3,17 +3,27 @@ import Instance from "./Instance";
 export enum B_T_STATUS{
     FAILD,
     SUCCESS,
-    RUNNING
+    RUNNING,
 }
 export default class TNodeBase{
+
+    /**
+     * 唯一id
+     */
+    private _id: string;
+    public get id(): string {
+        return this._id;
+    }
+    public set id(value: string) {
+        this._id = value;
+    }
+
     //注意：_status 初始化为suucess
     protected _status:B_T_STATUS;
     tick():B_T_STATUS{
         this.modifyStatus(B_T_STATUS.SUCCESS);
         return this._status;
     }
-
-
 
     /**
      * 异步tick
@@ -65,5 +75,18 @@ export default class TNodeBase{
         }
 
         return B_T_STATUS.SUCCESS;
+    }
+
+    isOpen(id:string){
+        
+        return true;
+    }
+
+    open(){
+
+    }
+
+    close(){
+
     }
 }
