@@ -10,4 +10,6 @@ export default class Event_ {
     emit(...args){
         console.log(args);
     }
+
+    
 }

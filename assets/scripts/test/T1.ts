@@ -5,7 +5,7 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class T1 extends cc.Component {
     start() {
-        this.test8();
+        this.test9();
     }
 
 
@@ -229,5 +229,13 @@ export default class T1 extends cc.Component {
 
 
         subject.setStates(100);
+    }
+
+
+    test9(){
+        let root=this.node;
+        for(let i=0;i<root.childrenCount;i++){
+            console.log(root.children[i].name);
+        }
     }
 }
