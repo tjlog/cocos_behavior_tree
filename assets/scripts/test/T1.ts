@@ -1,8 +1,11 @@
+import Eone from "../design/Eone";
+import Subject from "../design/Subject";
+
 const { ccclass, property } = cc._decorator;
 @ccclass
 export default class T1 extends cc.Component {
     start() {
-        this.test7();
+        this.test8();
     }
 
 
@@ -218,7 +221,13 @@ export default class T1 extends cc.Component {
     }
 
 
+    test8(){
+        let subject=new Subject();
+        let e1=new Eone(subject);
+        let e2=new Eone(subject);
+        let e3=new Eone(subject);
 
 
-
+        subject.setStates(100);
+    }
 }
